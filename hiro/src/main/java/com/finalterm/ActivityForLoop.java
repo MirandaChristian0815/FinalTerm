@@ -66,6 +66,35 @@ public class ActivityForLoop {
 
             System.out.println(Subject[i] + " : " + grades[i] + " ---> " + CDMGradeClassification);
         }
+        //checking for subs below 75
+
+        System.out.println("\nSubjects below 75: ");
+        for (int i = 0; i < Subject.length; i++ ){
+            if (grades[i] < 75){
+                System.out.println(Subject[i] + " : " + grades[i]);
+            }
+        }
+        double CDM_MaxGrade = grades[0];
+        double CDM_MinGrade = grades[0];
+        String CDM_Maxsub = Subject[0];
+        String CDM_Minsub = Subject[0];
+
+        for (int i = 0; i < grades.length; i++){
+            if(grades[i] > CDM_MaxGrade){
+                CDM_MaxGrade = grades[i];
+                CDM_Maxsub = Subject[i];
+
+            }
+        }
+
+        for (int i = 0; i < grades.length; i++){
+            if(grades[i] < CDM_MinGrade){
+                CDM_MinGrade = grades[i];
+                CDM_Minsub = Subject[i];
+            }
+        }
+        System.out.println("\nHighest Grade: " + CDM_Maxsub + " : " + CDM_MaxGrade);
+        System.out.println("\nLowest Grade: " + CDM_Minsub + " : " + CDM_MinGrade);
         CDMIn.close(); // Close the scanner
     }
 }
